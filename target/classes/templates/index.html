@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<body>
+<p>LANDING PAGE</p>
+
+<div sec:authorize="isAuthenticated()">
+			Authenticated Users Only</div>
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
+			Admins only</div>
+			<div sec:authorize="hasRole('ROLE_USER')">
+			Users only</div>
+</body>
+</html>

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +33,9 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	private String companyName;
+	private String payment;
+	@ManyToMany
+	private Set<Role> roles;
 
 }
