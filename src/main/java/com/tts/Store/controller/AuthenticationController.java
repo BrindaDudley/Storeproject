@@ -17,7 +17,7 @@ public class AuthenticationController {
 	@GetMapping("/signin")
 	public String logIn()
 	{
-		return "index";
+		return "signin";
 	}
 	@GetMapping("/signUp")
 	public String singUp(Model model )
@@ -32,6 +32,15 @@ public class AuthenticationController {
 		iUserService.addUser(user);
 		return "signin";
 	}
-	
+	@GetMapping("/index")
+	public String index()
+	{
+		return "index";
+	}
+	@GetMapping("/home")
+	public String home()
+	{
+		return "home";
+	}
 
 }
