@@ -15,16 +15,16 @@ public class AuthenticationController {
 	IUserService iUserService;
 	
 	@GetMapping("/signin")
-	public String logIn()
+	public String signin()
 	{
 		return "signin";
 	}
 	@GetMapping("/signUp")
-	public String singUp(Model model )
+	public String signUp(Model model )
 	{
 		User user=new User();
 		model.addAttribute("user",user);
-		return "signup";
+		return "signUp";
 	}
 	@PostMapping("/signUp")
 	public String addUser(Model model,User user)

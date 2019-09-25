@@ -42,6 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        http.
 	                authorizeRequests()
 	                .antMatchers("/console/**").permitAll()
+	                .antMatchers("/home").permitAll()
 	                .antMatchers("/signin").permitAll()
 	                .antMatchers("/signUp").permitAll()
 	                .antMatchers("/custom.js").permitAll()
@@ -51,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	                .antMatchers().hasAuthority("USER").anyRequest()
 	                
 	                .authenticated().and().csrf().disable().formLogin()
-	                .loginPage("/sigin").failureUrl("/sigin?error=true")
+	                .loginPage("/signin").failureUrl("/signin?error=true")
 	                .defaultSuccessUrl("/home")
 	                .usernameParameter("username")
 	                .passwordParameter("password")
