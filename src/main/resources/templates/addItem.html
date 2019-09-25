@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://wwww.thymeleaf.org"
+	xmalns:sec="http://wwww.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+
+<div th:replace="/fragments/styling :: head-style"></div>
+</head>
+<body>
+	<div class="container">
+			<form action="#" th:action="@{/addItem}" th:object="${item}"
+			method="post" autocomplete="off">
+			<div class="form-group">
+				<label>Item Name</label> <input type="text" th:field="*{itemName}" placeholder="Item Name">
+			</div>
+			<div class="form-group">
+				<label>In Stock?</label> <input type="radio" th:field="*{inStock}" placeholder="In Stock">
+			</div>
+			<div class="form-group">
+				<label>Category</label> <input type="text" th:field="*{category}" placeholder="Category">
+			</div>
+			<div class="form-group">
+				<label>Brand</label> <input type="text" th:field="*{brand}" placeholder="Brand">
+			</div>
+			<div class="form-group">
+				<label>Image Link</label> <input type="url" th:field="*{image}" placeholder="URL for Image">
+			</div>
+			<div class="form-group">
+				<label>Price</label> <input type="number" th:field="*{price}" th:value="Price">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit">
+				</button></div>
+			</form>
+</div>
+<div th:replace="/fragments/styling :: body-links"></div>
+    
+</body>
+</html>
