@@ -3,11 +3,15 @@ package com.tts.Store.domain;
 import java.sql.Date;
 import java.util.List;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.Cascade;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +39,7 @@ public class User {
 	private String lastName;
 	private String companyName;
 	private String payment;
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Role> roles;
 
 }

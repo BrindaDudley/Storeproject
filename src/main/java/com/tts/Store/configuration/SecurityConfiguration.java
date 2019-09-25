@@ -22,9 +22,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
-	private String usersQuery="select user_name from user where user_name=?";
-	private String rolesQuery="select u.user_name,r.role_name from user u inner join user_role ur on (u.id=ur.user_id)inner join role r on(ur.role_id=r.id) where u.user_name=?";
-	
+	private String usersQuery="select user_name, password, active from user where user_name=?";
+	private String rolesQuery="select u.user_name,r.role_name from user u inner join user_roles ur on (u.user_id=ur.user_user_id) inner join role r on (ur.roles_id=r.id) where u.user_name=?";
+	 	
 	   @Override
 	    protected void configure(AuthenticationManagerBuilder auth)
 	            throws Exception {
@@ -49,15 +49,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	                .antMatchers("/index").permitAll()
 	                .antMatchers("/seller/**").hasAuthority("SELLER")
 	                .antMatchers().hasAuthority("USER").anyRequest()
-	                
 	                .authenticated().and().csrf().disable().formLogin()
-	                .loginPage("/sigin").failureUrl("/sigin?error=true")
+	                .loginPage("/signin").failureUrl("/signin?error=true")
 	                .defaultSuccessUrl("/home")
 	                .usernameParameter("username")
 	                .passwordParameter("password")
 	                .and().logout()
 	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	                .logoutSuccessUrl("/login").and().exceptionHandling();
+	                .logoutSuccessUrl("/signin").and().exceptionHandling();
 	        
 	        http.headers().frameOptions().disable();
 	    }
