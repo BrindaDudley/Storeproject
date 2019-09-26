@@ -43,12 +43,8 @@ import lombok.AllArgsConstructor;
 		private String category;
 		private String brand;
 		private String image;
-<<<<<<< HEAD
 		private double price;
 
-=======
-		private float price;
->>>>>>> modify itemservice, repo, controller
 		
 
 		@ManyToOne(fetch = FetchType.LAZY, optional = false)

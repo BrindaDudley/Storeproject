@@ -34,14 +34,13 @@ public class ItemsController {
 		return "home";
 	}
 	
-<<<<<<< HEAD
+
 	@GetMapping("/home")
 	public String home(Model model)
 	{
 		model.addAttribute("itemDetailsDto", iItemService.getItems());
 		return "home";
 	}
-=======
 	@PostMapping("/addItem")
     public String addItem(Item item, Model model) {
   
@@ -61,6 +60,6 @@ public class ItemsController {
 	}
 	
 
->>>>>>> modify itemservice, repo, controller
+
 
 }
