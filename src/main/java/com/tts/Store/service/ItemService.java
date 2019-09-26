@@ -3,18 +3,23 @@ package com.tts.Store.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tts.Store.domain.Item;
 import com.tts.Store.dto.ItemDetailsDto;
 import com.tts.Store.repository.ItemRepository;
+import com.tts.Store.repository.UserRepository;
 
 @Service
 public class ItemService implements IItemService {
 	@Autowired
 	private ItemRepository itemRepository;
-
+	@Autowired
+	private UserService userService;
+	
 	public List<Item> sortByCategory() {
 		
 		return itemRepository.findByCategory();
@@ -34,6 +39,7 @@ public class ItemService implements IItemService {
 	item1.setItemId(1L);
 	item1.setPrice(345);
 	
+<<<<<<< HEAD
 	Item item2 = new Item();
 	item2.setItemName("Tv");
 	item2.setBrand("LG");
@@ -85,5 +91,14 @@ public class ItemService implements IItemService {
 	return itemDetailsDto;
 	
 	}
+
+	public void save(Item item) {
+		// TODO Auto-generated method stub
+		item.setUser(userService.getLoggedInUser());
+		itemRepository.save(item);
+		
+	}
+
+
 
 }

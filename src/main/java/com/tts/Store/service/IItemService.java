@@ -10,5 +10,6 @@ public interface IItemService {
 	List<Item> sortByCategory();
 	List<Item> sortByBrand();
 	ItemDetailsDto getItems();
+	void save(Item item);
 
 }

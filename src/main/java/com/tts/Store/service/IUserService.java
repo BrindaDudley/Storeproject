@@ -6,4 +6,8 @@ public interface IUserService  {
 
 	void addUser(User user);
 
+	User getLoggedInUser();
+
+	User findByUserName(String userName);
+
 }
