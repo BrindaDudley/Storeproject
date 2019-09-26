@@ -20,27 +20,37 @@
 				</h1>
 				<p style="font-size: 17px; margin-left: 15px">
 					This is a small ecommerce application that allows the user to
-					purshase some of a few products that are offered here<br>
-					<br>
+					purshase some of a few products that are offered here<br> <br>
 					<br>
 				</p>
 			</div>
-		</div>
-		<option th:each="i : ${#numbers.sequence( 0, noOfRows)}">
-			<div class="row">
-				<option th:each="i : ${#numbers.sequence( 0, noOfColumns)}">
-					<div class="col-md-3">
-						<a href=""><img src="image"></a>
+				<div th:each="i : ${#numbers.sequence( 0, itemDetailsDto.noOfRows-1)}">
+					<div class="row">
+						<div th:each="j : ${#numbers.sequence( 0, 3)}">
+							<div class="col-md-3">
+								<a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjgtYSW5u7kAhVK-6wKHV4OC8kQPAgH"><img th:src="${itemDetailsDto.items[(i*4)+j].image}"></a>
+							</div>
+						</div>
+
 					</div>
-				</option>
-
+				</div>
+			<div th:if="${itemDetailsDto.remainingElements!= 0}">
+				<div class="row">
+					<div th:each="j : ${#numbers.sequence( 0, itemDetailsDto.remainingElements-1)}">
+						<div class="col-md-3">
+							<a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjgtYSW5u7kAhVK-6wKHV4OC8kQPAgH"><img th:src="${itemDetailsDto.items[(itemDetailsDto.noOfRows*4)+j].image}"></a>
+						</div>
+					</div>
+				</div>
 			</div>
-		</option>
-	</div>
 
-	<div sec:authorize="isAuthenticated()">Authenticated Users Only</div>
-	<div sec:authorize="hasRole('ROLE_ADMIN')">Admins only</div>
-	<div sec:authorize="hasRole('ROLE_USER')">Users only</div>
+
+		</div>
+
+
+		<div sec:authorize="isAuthenticated()">Authenticated Users Only</div>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">Admins only</div>
+		<div sec:authorize="hasRole('ROLE_USER')">Users only</div>
 </body>
 
 </div>

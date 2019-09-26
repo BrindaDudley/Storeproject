@@ -80,8 +80,8 @@ public class ItemService implements IItemService {
 	ItemDetailsDto itemDetailsDto = new ItemDetailsDto();
 	itemDetailsDto.setItems(items);
 	itemDetailsDto.setNoOfItems(items.size());
-	
-	
+	itemDetailsDto.setNoOfRows(itemDetailsDto.getNoOfItems()/4);
+	itemDetailsDto.setRemainingElements(itemDetailsDto.getNoOfItems()%4);
 	return itemDetailsDto;
 	
 	}

@@ -29,7 +29,7 @@ public class ItemsController {
 	@GetMapping("/home")
 	public String home(Model model)
 	{
-		model.addAttribute("items", iItemService.getItems());
+		model.addAttribute("itemDetailsDto", iItemService.getItems());
 		return "home";
 	}
 

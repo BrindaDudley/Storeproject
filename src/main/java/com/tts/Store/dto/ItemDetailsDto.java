@@ -19,6 +19,7 @@ public class ItemDetailsDto {
 	private List<Item> items;
 	private int noOfItems;
 	private int noOfRows;
+	private int remainingElements;
 	
 
 }
