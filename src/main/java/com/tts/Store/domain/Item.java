@@ -30,7 +30,7 @@ package com.tts.Store.domain;
 		private String category;
 		private String brand;
 		private String image;
-		private float price;
+		private double price;
 
 		
 

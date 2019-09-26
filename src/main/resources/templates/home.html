@@ -9,19 +9,42 @@
 </head>
 <body>
 	<div class="container">
-<div th:replace="/fragments/navbar :: navbar"></div>
-<p>Home after Login</p>
+		<div th:replace="/fragments/navbar :: navbar"></div>
+		<p>Home after Login</p>
 
-<div sec:authorize="isAuthenticated()">
-			Authenticated Users Only</div>
-			<div sec:authorize="hasRole('ROLE_ADMIN')">
-			Admins only</div>
-			<div sec:authorize="hasRole('ROLE_USER')">
-			Users only</div>
+		<div class="panel panel-default" style="background: #e6f2ff">
+			<div class="poanel-body">
+				<h1
+					style="text-align: left; font-family: actor; font-size: 70px; font-weight: lighter; margin-left: 50px">
+					<br>Tech Talent Store<br>
+				</h1>
+				<p style="font-size: 17px; margin-left: 15px">
+					This is a small ecommerce application that allows the user to
+					purshase some of a few products that are offered here<br>
+					<br>
+					<br>
+				</p>
+			</div>
+		</div>
+		<option th:each="i : ${#numbers.sequence( 0, noOfRows)}">
+			<div class="row">
+				<option th:each="i : ${#numbers.sequence( 0, noOfColumns)}">
+					<div class="col-md-3">
+						<a href=""><img src="image"></a>
+					</div>
+				</option>
+
+			</div>
+		</option>
+	</div>
+
+	<div sec:authorize="isAuthenticated()">Authenticated Users Only</div>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">Admins only</div>
+	<div sec:authorize="hasRole('ROLE_USER')">Users only</div>
 </body>
 
 </div>
 <div th:replace="/fragments/styling :: body-links"></div>
-    
+
 </body>
 </html>

@@ -25,5 +25,12 @@ public class ItemsController {
 		model.addAttribute("Brand", iItemService.sortByBrand());
 		return "home";
 	}
+	
+	@GetMapping("/home")
+	public String home(Model model)
+	{
+		model.addAttribute("items", iItemService.getItems());
+		return "home";
+	}
 
 }
